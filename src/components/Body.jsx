@@ -44,6 +44,10 @@ const Body = () => {
 
   return (
     <div className="flex flex-col items-center">
+      {
+        cardDispaly.length===0?<div className="bg-orange-600 text-white m-4 p-4 bg-opacity-80"><h1 className="font-bold">Please open the cors plugin to see the project</h1></div>:null
+      }
+      
       <div className="h-14 w-full  flex items-center p-4">
         <input
           placeholder="Search"
@@ -83,9 +87,9 @@ const Body = () => {
         ) : res.length === 0 ? (
           cardDispaly.map((data, index) => (
             <Link key={index} to={"/resturant/" + data?.info?.id}>
-              {" "}
               <Card data={data} />{" "}
             </Link>
+
           ))
         ) : (
           res.map((data, index) => (
